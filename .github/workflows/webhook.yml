@@ -1,0 +1,19 @@
+name: Send Webhook
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    types: [closed]
+
+jobs:
+  webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send webhook
+        run: |
+          curl -X POST https://177f87953a1a.ngrok-free.app/webhook \
+          -H "Content-Type: application/json" \
+          -d '{}'
